@@ -1,6 +1,8 @@
 import "dart:typed_data";
 import "dart:ui";
 
+import 'package:flutter/cupertino.dart';
+
 /// TapiocaBall is a effect to apply to the video.
 abstract class TapiocaBall {
   /// Creates a object to apply color filter from [Filters].
@@ -14,8 +16,8 @@ abstract class TapiocaBall {
   }
 
   /// Creates a object to overlay text.
-  static TapiocaBall textOverlay(String text, int x, int y, int size, Color color) {
-    return _TextOverlay(text, x, y, size, color);
+  static TapiocaBall textOverlay(Text text, int x, int y,) {
+    return _TextOverlay(text, x, y);
   }
 
   /// Creates a object to overlay a image.
@@ -65,15 +67,13 @@ class _Filter extends TapiocaBall {
 }
 
 class _TextOverlay extends TapiocaBall {
-  final String text;
+  final Text text;
   final int x;
   final int y;
-  final int size;
-  final Color color;
-  _TextOverlay(this.text, this.x, this.y, this.size, this.color);
+  _TextOverlay(this.text, this.x, this.y);
 
   Map<String, dynamic> toMap() {
-    return {'text': text, 'x': x, 'y': y, 'size': size, 'color': '#${color.value.toRadixString(16).substring(2)}' };
+    return {'text': text, 'x': x, 'y': y, };
   }
 
   String toTypeName() {

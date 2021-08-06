@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 import 'dart:typed_data';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tapioca/src/video_editor.dart';
@@ -43,7 +44,12 @@ void main() {
   test('writeVideofile', () async {
     final tapiocaBalls = [
       TapiocaBall.filter(Filters.pink),
-      TapiocaBall.textOverlay("text", 10, 10,100, Color(0xFFffffff)),
+      TapiocaBall.textOverlay(
+      Text('data',style: TextStyle(
+        fontSize: 10,
+        fontFamily: 'Mulish'
+      ),),
+       10, 10,),
       TapiocaBall.imageOverlay(Uint8List(10), 10, 10),
     ];
     final cup = Cup(Content(path), tapiocaBalls);

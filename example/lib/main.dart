@@ -67,7 +67,10 @@ class _MyAppState extends State<MyApp> {
                 TapiocaBall.filter(Filters.pink),
                 TapiocaBall.imageOverlay(imageBitmap, 300, 300),
                 TapiocaBall.textOverlay(
-                    "text", 100, 10, 100, Color(0xffffc0cb)),
+                Text('test',style: TextStyle(
+                  color: Colors.blueAccent
+                ),)
+                , 100, 10,),
               ];
                 final cup = Cup(Content(_video.path), tapiocaBalls);
                 cup.suckUp(path).then((_) async {
